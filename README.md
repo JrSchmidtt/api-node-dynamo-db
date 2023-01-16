@@ -1,1 +1,1 @@
-# api-node-boilerplate
+# api-node-dynamo-db
