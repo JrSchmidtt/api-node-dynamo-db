@@ -78,8 +78,7 @@ class BookService {
             },
         };
         try {
-            await this.dynamoDb.delete(params).promise();
-            return { message: 'Book deleted' };
+            return await this.dynamoDb.delete(params).promise();
         } catch (error) {
             return { error };
         }
