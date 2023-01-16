@@ -2,7 +2,11 @@ import bookService from "../service/bookService";
 
 class BookController {
     async index(req, res) {
-        res.status(200).json([{ id: 1, name: 'book name' }]);
+        const books = await bookService.getBooks();
+        if (books.error) {
+            return res.status(500).json(books);
+        }
+        res.status(200).json(books);
     }
     async create(req, res) {
         if (!req.body.title) {
